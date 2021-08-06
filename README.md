@@ -24,7 +24,7 @@ The script can also be used as a library, acting as a parser. It'll return a lis
 ```python
 from DSAceCleaner import parser
 parsedList = parser('DSAce.txt',      True)
-#				^Input File	^Include timestamps
+#		^Input File	^Include timestamps
 
 nameList = parsedList[0]
 contentList = parsedList[1]
