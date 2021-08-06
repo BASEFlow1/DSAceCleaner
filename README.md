@@ -7,11 +7,12 @@ Start the script:
 `python .\DSAceCleaner.py` OR `start DSAceCleaner.exe`
 
 Follow the given instructions:
-`Input Path for DSAce log file("default" for .\DSAce.txt):`
 
-`Output Path for cleaned DSAce log("default" for DSAce_cleaned.txt):`
+`Input Path for DSAce log file("default" for .\DSAce.txt):
 
-`Include timestamps (y/n):`
+Output Path for cleaned DSAce log("default" for DSAce_cleaned.txt):
+
+Include timestamps (y/n):`
 
 ------------
 
