@@ -50,8 +50,11 @@ def parser(inputFile, boolean):
                                         if not exclusion[:-3] in hehe[0]:
                                             if not exclusion[:-3] in hehe[1]:
                                                 ex += 1
+                                    elif exclusion[-3:] == "[3]":
+                                        if not exclusion[:-3] in hehe[1][:len(exclusion)]:
+                                            ex += 1
                                     else:
-                                        print("Invalid exclusion formatting. Each exclusion must end with either '[0]', '[1]' or '[2]'. \n   [0] = Exclude from Name List \n   [1] = Exclude from Content List \n   [2] = Exclude from both Lists")
+                                        print("Invalid exclusion formatting. Each exclusion must end with either '[0]', '[1]', '[2]' or '[3]'. \n   [0] = Exclude from Name List \n   [1] = Exclude from Content List \n   [2] = Exclude from both Lists \n   [3] = Exclude if at the beginning of Content List. Used for ooRP messages.")
                                         os._exit(0)
                                     if ex >= len(exclusions):
                                         nameList.append(hehe[0])
@@ -100,8 +103,11 @@ def parser(inputFile, boolean):
                                         if not exclusion[:-3] in hehe[0]:
                                             if not exclusion[:-3] in hehe[1]:
                                                 ex += 1
+                                    elif exclusion[-3:] == "[3]":
+                                        if not exclusion[:-3] in hehe[1][:len(exclusion)]:
+                                            ex += 1
                                     else:
-                                        print("Invalid exclusion formatting. Each exclusion must end with either '[0]', '[1]' or '[2]'. \n   [0] = Exclude from Name List \n   [1] = Exclude from Content List \n   [2] = Exclude from both Lists")
+                                        print("Invalid exclusion formatting. Each exclusion must end with either '[0]', '[1]', '[2]' or '[3]'. \n   [0] = Exclude from Name List \n   [1] = Exclude from Content List \n   [2] = Exclude from both Lists \n   [3] = Exclude if at the beginning of Content List. Used for ooRP messages.")
                                         os._exit(0)
 
                                     if ex >= len(exclusions):
