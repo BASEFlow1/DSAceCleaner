@@ -36,6 +36,8 @@ The *exclusions* key is a bit more special, it defines what is to be included in
 >
 >[3] = Exclude argument from and if at the beginning of Content List. Used for ooRP messages.
 
+An example of how the config file looks can be found in the DSAceCleaner/config.ini file.
+
 ------------
 
 
