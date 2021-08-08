@@ -255,6 +255,77 @@ def parser(inputFile, boolean):
                                             contentList.append(hehe[1])
                     i = i + 1
                     ree = True
+        else:
+            if not ree:
+                try:
+                    with open(inputFile, 'r') as input:
+                        input = input.read()
+                        input = input.split('\n')
+                except:
+                    raise(FileNotFoundError)
+                #doneAlready = []
+                tryExcept = []
+                nameList = []
+                contentList = []
+                i = 0
+
+                for x in input:
+                    kek = x
+                    if ":" in kek:
+                        # if i not in doneAlready:
+                        #     print("Proccessing line: " +  str(i))
+                        # doneAlready.append(i)
+                        try:
+                            hehe = kek.split(': ', 1)
+                            tryExcept.append(hehe[1])
+                            works = True
+                        except IndexError:
+                            works = False
+
+                        if works:
+                            if not "Death" in hehe[0]:
+                                if not "Tip" in hehe[0]:
+                                    if not "has requested to dock" in hehe[1]:
+                                        nameList.append(hehe[0])
+                                        contentList.append(hehe[1])
+                    i = i + 1
+                    ree = True
+            else:
+                try:
+                    with open(inputFile, 'r') as input:
+                        input = input.read()
+                        input = input.split('\n')
+                except:
+                    raise(FileNotFoundError)
+                #doneAlready = []
+                tryExcept = []
+                nameList = []
+                contentList = []
+                i = 0
+
+                for x in input:
+                    kek = x
+                    if ":" in x:
+                        # if i not in doneAlready:
+                        #     print("Proccessing line: " +  str(i))
+                        # doneAlready.append(i)
+                        try:
+                            hehe = kek.split(': ', 3)
+                            tryExcept.append(hehe[1])
+                            works = True
+                            tryExcept = []
+                        except IndexError:
+                            works = False
+
+                        if works:
+                            if not "Death" in hehe[0]:
+                                if not "has requested to dock" in hehe[1]:
+                                    if not "Options" in hehe[0]:
+                                        if not "Tip" in hehe[0]:
+                                            nameList.append(hehe[0])
+                                            contentList.append(hehe[1])
+                    i = i + 1
+                    ree = True
     return nameList, contentList
 config = configparser.ConfigParser()
 config.read('config.ini')
