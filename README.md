@@ -24,7 +24,7 @@ The config-file includes the following keys:
 `includeTimestamps`
 `exclusions`
 
-The *in-* and *outputFile* keys are self-explanatory. They take the in- and output path of the DSAce file. The *includeTimestamps* key also is. It defines wether to include Timestamps or not. It takes either 'y' or 'n' as arguments.
+The *in-* and *outputFile* keys are self-explanatory. They take the in- and output path of the DSAce file. The *includeTimestamps* key also is. It defines whether to include Timestamps or not. It takes either 'y' or 'n' as arguments.
 
 The *exclusions* key is a bit more special, it defines what is to be included in the cleaned file and what is to be filtered out. It can take multiple arguments, all of which must be seperated by a comma and space (', '). Each argument must end with either [0], [1], [2] or [3].
 
