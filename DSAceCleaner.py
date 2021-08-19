@@ -1,5 +1,6 @@
 import os
 import configparser
+import time
 def parser(inputFile, boolean):
     ree = False
     config = configparser.ConfigParser()
@@ -402,6 +403,8 @@ else:
         print("Invalid 'includeTimestamps' entry.")
         os._exit(0)
 
+startTime = time.time()
+
 parserList = parser(inputFile, perhaps)
 nameList = parserList[0]
 contentList = parserList[1]
@@ -417,5 +420,5 @@ try:
         input.writelines(commentList)
 except:
     raise(FileNotFoundError)
-
-print("Done.")
+executionTime = (time.time() - startTime)
+print('Proccessing done.\nExecution time in seconds: ' + str(round(executionTime, 7)))
