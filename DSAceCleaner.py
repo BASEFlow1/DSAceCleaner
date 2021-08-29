@@ -106,7 +106,7 @@ def parser(inputFile, includeTimestamps):
                             print("Invalid exclusion formatting. Each exclusion must end with either '[0]', '[1]', '[2]' or '[3]'. \n   [0] = Exclude from Name List \n   [1] = Exclude from Content List \n   [2] = Exclude from both Lists \n   [3] = Exclude if at the beginning of Content List. Used for ooRP messages.")
                             os._exit(0)
 
-                        # If 'ex' is less than or equal to the number of exclusions,
+                        # If 'ex' is greater than or equal to the number of exclusions,
                         # append 'splitX[0]' to 'nameList' and 'splitX[1]' to 'contentList' respectively.
                         if ex >= len(exclusions):
                             nameList.append(splitX[0])
