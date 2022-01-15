@@ -1,6 +1,13 @@
+from os.path import exists
 import os
 import configparser
 import time
+import sys
+
+if exists("".join(sys.argv[1:])):
+    arguments = ["".join(sys.argv[1:]), True]
+else:
+    arguments = ["", False]
 
 # Start timing.
 startTime = time.time()
@@ -152,30 +159,38 @@ if not config.read('config.ini') == []:
 # Else use it.
 if not useInputFile:
     inputFile = input('Input Path for DSAce log file("default" or blank for .\DSAce.txt): ')
-    if inputFile == "default":
-        inputFile = "DSAce.txt"
     if inputFile == "":
+        inputFile = "DSAce.txt"
+    elif inputFile == "default":
         inputFile = "DSAce.txt"
 else:
     inputFile = config['SETTINGS']['inputFile']
+
+if arguments[1] == True:
+    inputFile = arguments[0]
 
 # If no output-file is specified in the config, ask for user-input.
 # Else use it.
 if not useOutputFile:
     if "." in inputFile:
         outputFile = input('Output Path for cleaned DSAce log("default" for ' + inputFile.rsplit(".", 1)[0] + '_cleaned.' + inputFile.rsplit(".", 1)[1] + '): ')
-        if outputFile == "default":
-            outputFile = inputFile.rsplit(".", 1)[0] + '_cleaned.' + inputFile.rsplit(".", 1)[1]
         if outputFile == "":
+            outputFile = inputFile.rsplit(".", 1)[0] + '_cleaned.' + inputFile.rsplit(".", 1)[1]
+        elif outputFile == "default":
             outputFile = inputFile.rsplit(".", 1)[0] + '_cleaned.' + inputFile.rsplit(".", 1)[1]
     else:
         outputFile = input('Output Path for cleaned DSAce log file("default" or blank for ' + inputFile + '_cleaned): ')
-        if outputFile == "default" or outputFile == "":
-            outputFile = inputFile + '_cleaned'
         if outputFile == "":
+            outputFile = inputFile + '_cleaned'
+        elif outputFile == "default":
             outputFile = inputFile + '_cleaned'
 else:
     outputFile = config['SETTINGS']['outputFile']
+
+if arguments[1] == True:
+    temporary = [arguments[0].rsplit('\\', 1)[0], arguments[0].rsplit('\\', 1)[1].rsplit('.', 1)[0], arguments[0].rsplit('\\', 1)[1].rsplit('.', 1)[1]]
+    outputFile = f"{temporary[0]}\{temporary[1]}_cleaned.{temporary[2]}"
+    del temporary
 
 # If 'includeTimestamps' is not specified in the config, ask for user-input.
 # Else use it.
